@@ -1,0 +1,47 @@
+package br.senac.rn.loja.teste;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import br.senac.rn.loja.model.Sexo;
+
+public class TestaArrayList {
+
+	public static void main(String[] args) {
+		
+		List<Sexo> sexos = new LinkedList<Sexo>();
+		
+		Sexo s1 = new Sexo();
+		s1.setId(1);
+		s1.setNome("Masculino");
+		s1.setSigla("M");		
+		
+		Sexo s2 = new Sexo();
+		s2.setId(2);
+		s2.setNome("Feminino");
+		s2.setSigla("F");		
+				
+		Sexo s3 = new Sexo();
+		s3.setId(2);
+		s3.setNome("Não Informado");
+		s3.setSigla("N");		
+		
+		Sexo s4 = new Sexo();
+		s4.setId(2);
+		s4.setNome("Não Informado");
+		s4.setSigla("N");
+		
+		sexos.add(s4);
+		sexos.add(s3);
+		sexos.add(s2);
+		sexos.add(s1);
+		
+		sexos.remove(s2);
+		System.out.println(sexos);
+		System.out.println(sexos.get(2));
+		System.out.println(sexos.contains(s4));			
+
+	}
+
+}

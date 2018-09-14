@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TestaArrayList.java&apos; to &apos;loja/src/br.senac.rn.loja.teste&apos;&#x0D;&#x0A;- Original project: &apos;loja&apos;&#x0D;&#x0A;- Destination element: &apos;loja/src/br.senac.rn.loja.teste&apos;&#x0D;&#x0A;- Original element: &apos;br.senac.rn.loja.teste.TestaArrayList.java&apos;" description="Copy compilation unit" destination="/src&lt;br.senac.rn.loja.teste" element1="/src&lt;br.senac.rn.loja.teste{TestaArrayList.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1536882831090" units="1" version="1.0"/>
+</session>

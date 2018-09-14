@@ -1,0 +1,10 @@
+package br.senac.rn.loja.teste;
+
+public class TestaArrayList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,55 @@
+package br.senac.rn.loja.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.senac.rn.loja.model.Sexo;
+
+public class SexoDAO {
+	
+	private static List<Sexo> sexos = new ArrayList<>();
+	
+	public void inserir(Sexo sexo) {
+		sexos.add(sexo);
+	}
+
+	public void remover(Sexo sexo) {
+		sexos.remove(sexo);
+	}
+	
+	public void editar(Sexo sexo) {
+		int indice = sexos.indexOf(sexo);
+		sexos.set(indice, sexo);	   	
+	}
+	
+	public List<Sexo> buscarTodos() {
+		return sexos;
+	}
+	
+	public Sexo bucarPorId(Integer id) {
+		for (Sexo sexo : sexos) {			
+			if (id == sexo.getId()) {
+				return sexo;
+			}
+		}
+		return null;
+	}
+	
+	public Sexo bucarNome(String nome) {
+		for (Sexo sexo : sexos) {
+			if (sexo.getNome().equals(nome)) {
+				return sexo;
+			}
+		}
+		return null;		
+	}
+	
+	public Sexo buscarSigla(String sigla) {
+		for (Sexo sexo : sexos) {
+			if (sexo.getSigla().equals(sigla)) {
+				return sexo;
+			}
+		}
+		return null;
+	}
+}

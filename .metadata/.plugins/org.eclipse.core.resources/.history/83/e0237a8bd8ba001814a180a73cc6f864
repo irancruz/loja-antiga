@@ -1,0 +1,19 @@
+package br.senac.rn.loja.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.senac.rn.loja.model.Departamento;
+
+public class DepartamentoDAO {
+
+	private List<Departamento> departamentos = new ArrayList();
+	
+	public void inserir() {};
+	public void remover() {};
+	public void editar() {};
+	public void buscarTodos() {};
+	public void buscarId() {};
+	public void buscarNome() {};
+	public void buscarSigla() {};	
+}

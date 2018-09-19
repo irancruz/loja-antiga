@@ -1,36 +1,65 @@
 package br.senac.rn.loja.teste;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
+
+import br.senac.rn.loja.dao.DepartamentoDAO;
+import br.senac.rn.loja.dao.SexoDAO;
+import br.senac.rn.loja.model.Departamento;
 import br.senac.rn.loja.model.Sexo;
 
 public class TestaArrayList {
 
 	public static void main(String[] args) {
-		
-		List<Sexo> sexos = new LinkedList<Sexo>();
-		
-		int resposta = 1;
-		int id = 1;
-		
+	
+					
 		Scanner entrada = new Scanner(System.in);
+		
+		int resposta; 
+		
+		 /*
+		 SexoDAO dao = new SexoDAO();
 		
 		do {
 			Sexo sexo = new Sexo();
-			sexo.setId(id);
 			System.out.println("Informe o nome do Sexo:");
 			sexo.setNome(entrada.next());
 			System.out.println("Informe a sigla do Sexo:");
 			sexo.setSigla(entrada.next());
-			sexos.add(sexo);
+			dao.inserir(sexo);
 			System.out.println("Digite 0(ZERO) para SAIR");
-			resposta = entrada.nextInt();
-			id++;
+			resposta = entrada.nextInt();			
 		} while(resposta != 0);
 		
+		Sexo sm = new Sexo();
+		sm.setId(1);
+		sm.setNome("teste");
+		dao.editar(sm); */
+		
+		
+		DepartamentoDAO dao = new DepartamentoDAO();
+		
+		do {
+			Departamento departamento = new Departamento();
+			System.out.println("Informe o nome do Departamento:");
+			departamento.setNome(entrada.next());
+			System.out.println("Informe o Desconto:");
+			departamento.setSigla(entrada.next());
+			System.out.println("Informe a sigla do Departamento:");
+			departamento.setSigla(entrada.next());
+			dao.inserir(departamento);
+			System.out.println("Digite 0(ZERO) para SAIR");
+			resposta = entrada.nextInt();			
+		} while(resposta != 0);
+		
+		Departamento sm = new Departamento();
+		sm.setId(1);
+		sm.setNome("teste");
+		dao.editar(sm); 
+		
 		entrada.close();
-
+		
+		dao.buscarTodos().forEach(sexo -> System.out.println(sexo)); // forEach mesma coisa do for	
+		
 		
 //		Sexo s1 = new Sexo();
 //		s1.setId(1);
@@ -58,18 +87,18 @@ public class TestaArrayList {
 //		sexos.add(s1);
 //		sexos.remove(s2);
 		
-		sexos.forEach(sexo -> System.out.println(sexo)); // mesma coisa do for
+//		sexos.forEach(sexo -> System.out.println(sexo)); // mesma coisa do for
 		
-		for (Sexo sexo : sexos) {
-			if (sexo.getId() == 2) {
-				System.out.println(sexo);
-				System.out.println("Achou");
-				break;
-			}
-		}
-		
-		System.out.println(sexos.size());
-		System.out.println(sexos);
+//		for (Sexo sexo : sexos) {
+//			if (sexo.getId() == 2) {
+//				System.out.println(sexo);
+//				System.out.println("Achou");
+//				break;
+//			}
+//		}
+//		
+//		System.out.println(sexos.size());
+//		System.out.println(sexos);
 //		System.out.println(sexos.get(2));
 //		System.out.println(sexos.contains(s4));			
 

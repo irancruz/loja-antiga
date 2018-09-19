@@ -1,9 +1,18 @@
 package br.senac.rn.loja.model;
 
 public class Sexo implements Comparable<Sexo> {
-	private Integer id;
+	
+	private static Integer contador = 0; // static so é controlado pela classe
+		
+	
+	private Integer id;  
 	private String nome;
 	private String sigla;
+	
+	public Sexo() {
+		Sexo.contador ++;
+		id = Sexo.contador;
+	}	
 	
 	public Integer getId() {
 		return id;

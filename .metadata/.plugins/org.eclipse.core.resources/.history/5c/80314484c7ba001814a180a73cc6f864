@@ -1,0 +1,12 @@
+package br.senac.rn.loja.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.senac.rn.loja.model.Sexo;
+
+public class SexoDAO {
+	
+	private static List<Sexo> sexos = new ArrayList<>();
+
+}

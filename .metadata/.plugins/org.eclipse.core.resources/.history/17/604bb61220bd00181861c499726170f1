@@ -1,0 +1,34 @@
+package br.senac.rn.loja.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConexaoMariaDB {
+	
+	//ALGUNS DRIVES
+		//MariaDB -> org.mariadb.jdbc.Driver
+		//MySQL -> com.mysql.cj.jdbc.Driver
+		//PostgreSQL -> org.postgresql.Driver
+		//MSSQL -> com.microsoft.sqlserver.jdbc.SQLServerDriver
+		
+		private final String DRIVER = "org.mariadb.jdbc.Driver";
+		private final String BANCO = "db_loja_noite";
+		private final String URL = "jdbc:mariadb://localhost:3306/" + BANCO;
+		private final String USUARIO = "root";
+		private final String SENHA = "";
+		
+		public Connection getConexao() {
+			try {
+				Class.forName(DRIVER);
+				Connection connection = DriverManager.getConnection(URL, USUARIO, SENHA);
+				return connection;
+			}catch (ClassNotFoundException exception) {
+				System.out.println("DRIVE NÃO ENCONTRADO!!!");
+			}catch (SQLException exception) {
+				System.out.println("PROBLEMAS NA CONEXÃO!!!");
+			}
+			return null;
+		}
+
+}

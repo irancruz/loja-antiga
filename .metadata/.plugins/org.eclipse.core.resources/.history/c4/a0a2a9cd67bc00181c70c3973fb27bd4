@@ -1,0 +1,110 @@
+package br.senac.rn.loja.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.senac.rn.loja.model.Produto;
+
+public class ProdutoDAO {
+	
+	public void inserir(Produto produto) {
+		ConexaoMariaDB conexao = new ConexaoMariaDB();
+		String SQL = "INSERT INTO tb_produtos (pro_nome, pro_descricao, pro_preco, pro_quantidade_estoque, "+
+		"pro_quantidade_minima, pro_mar_id, pro_dep_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		try {
+			PreparedStatement statement = conexao.getConexao().prepareStatement(SQL);
+			statement.setString(1, produto.getNome());
+			statement.setString(2, produto.getDescricao());
+			statement.setFloat(3, produto.getPreco());
+			statement.setInt(4, produto.getQuantidade_estoque());
+			statement.setInt(5, produto.getQuantidade_minima());
+			statement.setInt(6, produto.getMarca_id());
+			statement.setInt(7, produto.getDepartamento_id());
+			statement.executeUpdate();
+		}catch(SQLException exception){
+			System.out.println("ERRO: " + exception.getMessage());			
+		}	
+		
+	}
+
+	public void remover(Produto produto) {
+		ConexaoMariaDB conexao = new ConexaoMariaDB();
+		String SQL = "DELETE FROM tb_produtos WHERE pro_id = ?";
+		try {
+			PreparedStatement statement = conexao.getConexao().prepareStatement(SQL);
+			statement.setInt(1, produto.getId());
+			statement.executeUpdate();			
+		}catch (SQLException exception){
+			System.out.println("ERRO: " + exception.getMessage());			
+		}	
+	}
+	
+	public void editar(Produto produto) {
+		ConexaoMariaDB conexao = new ConexaoMariaDB();
+		String SQL = "UPDATE tb_produtos SET pro_nome = ?, pro_descricao = ?, pro_preco = ?, "+
+		"pro_quantidade_estoque = ?, pro_quantidade_minima = ? WHERE pro_id = ?";
+		try {
+			PreparedStatement statement = conexao.getConexao().prepareStatement(SQL);
+			statement.setString(1, produto.getNome());
+			statement.setString(2, produto.getDescricao());
+			statement.setFloat(3, produto.getPreco());
+			statement.setInt(4, produto.getQuantidade_estoque());
+			statement.setInt(5, produto.getQuantidade_minima());
+			statement.setInt(6, produto.getMarca_id());
+			statement.setInt(7, produto.getDepartamento_id());			
+			statement.setInt(8, produto.getId());
+			statement.executeUpdate();
+		}catch (SQLException exception) {
+			System.out.println("ERRO: " + exception.getMessage());	
+		}		   	
+	}
+	
+	public List<Produto> buscarTodos() {
+		List<Produto> departamentos = new ArrayList<Produto>();
+		ConexaoMariaDB conexao = new ConexaoMariaDB();
+		String SQL = "SELECT * FROM tb_departamentos";
+		try {
+			PreparedStatement statement = conexao.getConexao().prepareStatement(SQL);
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				Produto departamento = new Produto();
+				departamento.setId(result.getInt("dep_id"));
+				departamento.setNome(result.getString("dep_nome"));
+				departamento.setSigla(result.getString("dep_sigla"));
+				departamento.setDesconto(result.getFloat("dep_desconto"));				
+				departamentos.add(departamento);				
+			}
+			return departamentos;
+		}catch (SQLException exception) {
+			System.out.println("ERRO: " + exception.getMessage());	
+		}		
+		return null;
+	}
+	
+	public Departamento bucarPorId(Integer id) {
+		Departamento departamento = new Departamento();		
+		ConexaoMariaDB conexao = new ConexaoMariaDB();
+		String SQL = "SELECT * FROM tb_departamentos WHERE dep_id = ?";
+		try {
+			PreparedStatement statement = conexao.getConexao().prepareStatement(SQL);
+			statement.setInt(1, id);
+			ResultSet result = statement.executeQuery();	
+			if (result.next()) {
+				departamento.setId(result.getInt("dep_id"));
+				departamento.setNome(result.getString("dep_nome"));
+				departamento.setSigla(result.getString("sex_sigla"));	
+				departamento.setDesconto(result.getFloat("dep_desconto"));				
+			}						
+			return departamento;
+		}catch (SQLException exception) {
+			System.out.println("ERRO: " + exception.getMessage());	
+		}		
+		return null;		
+		
+	}
+	
+
+}

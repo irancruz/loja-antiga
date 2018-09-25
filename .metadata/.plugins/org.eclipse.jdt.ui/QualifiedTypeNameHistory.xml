@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="java.lang.Comparable"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.dao.SexoDAO"/>
-<fullyQualifiedTypeName name="br.senac.rn.loja.model.Departamento"/>
 <fullyQualifiedTypeName name="java.security.GeneralSecurityException"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -14,6 +13,8 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.model.Sexo"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.dao.DepartamentoDAO"/>
-<fullyQualifiedTypeName name="br.senac.rn.loja.model.Produto"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.dao.ConexaoMariaDB"/>
+<fullyQualifiedTypeName name="br.senac.rn.loja.model.Departamento"/>
+<fullyQualifiedTypeName name="br.senac.rn.loja.model.Produto"/>
+<fullyQualifiedTypeName name="br.senac.rn.loja.dao.ProdutoDAO"/>
 </qualifiedTypeNameHistroy>

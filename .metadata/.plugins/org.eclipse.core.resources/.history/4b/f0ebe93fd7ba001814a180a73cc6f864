@@ -1,8 +1,0 @@
-package br.senac.rn.loja.dao;
-
-import java.util.List;
-
-public class DepartamentoDAO {
-
-	private List<Departamento> departamentos
-}

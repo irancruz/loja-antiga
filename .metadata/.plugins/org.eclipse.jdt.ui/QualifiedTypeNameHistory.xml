@@ -2,19 +2,34 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="br.senac.rn.loja.teste.TestaArrayList"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.lang.Comparable"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.dao.SexoDAO"/>
 <fullyQualifiedTypeName name="java.security.GeneralSecurityException"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.model.Sexo"/>
-<fullyQualifiedTypeName name="br.senac.rn.loja.dao.DepartamentoDAO"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.dao.ConexaoMariaDB"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.persistence.TypedQuery"/>
+<fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
+<fullyQualifiedTypeName name="javax.persistence.Persistence"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="br.senac.rn.loja.model.Marca"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.model.Departamento"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+<fullyQualifiedTypeName name="org.hibernate.annotations.ManyToAny"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.model.Produto"/>
 <fullyQualifiedTypeName name="br.senac.rn.loja.dao.ProdutoDAO"/>
+<fullyQualifiedTypeName name="br.senac.rn.loja.dao.MarcaDAO"/>
+<fullyQualifiedTypeName name="br.senac.rn.loja.dao.DepartamentoDAO"/>
+<fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
 </qualifiedTypeNameHistroy>

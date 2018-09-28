@@ -1,15 +1,28 @@
 package br.senac.rn.loja.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 public abstract class GenericDAO<T> {
 
-	protected EntityManager manager = DataBase.getEntityManager();
+	private static EntityManager manager;
 
 	public abstract Class<T> getClassType();
 
+	protected EntityManager getEntityManager() {
+		if (manager == null || !manager.isOpen()) {
+			manager = DataBase.getInstance().getEntityManager();
+		}
+		return manager;
+	}
+
 	private void operacaoDataBase(Operacao operacao, T entity) {
-		manager.getTransaction().begin();
+		this.getEntityManager().getTransaction().begin();
 		switch (operacao) {
 			case INSERIR:
 				manager.persist(entity);
@@ -20,9 +33,9 @@ public abstract class GenericDAO<T> {
 			case ATUALIZAR:
 				manager.merge(entity);
 		}
-		manager.getTransaction().commit();
+		this.getEntityManager().getTransaction().commit();
 	}
-
+	
 	public void insert(T entity) {
 		operacaoDataBase(Operacao.INSERIR, entity);
 	}
@@ -36,7 +49,23 @@ public abstract class GenericDAO<T> {
 	}
 
 	public T findById(Integer id) {
-		return manager.find(this.getClassType(), id);
+		return this.getEntityManager().find(this.getClassType(), id);
+	}
+	
+	public List<T> findAll() {
+		CriteriaBuilder builder = this.getEntityManager().getCriteriaBuilder();
+		CriteriaQuery<T> query = builder.createQuery(this.getClassType());
+		Root<T> entity = query.from(this.getClassType());
+		CriteriaQuery<T> select = query.select(entity);
+		TypedQuery<T> consulta = this.getEntityManager().createQuery(select);
+		return consulta.getResultList();
+	}
+	
+	public List<T> findAll2() {
+		String entity = this.getClassType().getName();
+		String sql = "SELECT t FROM " + entity + " t ";
+		TypedQuery<T> query = this.getEntityManager().createQuery(sql, this.getClassType());
+		return query.getResultList();
 	}
 
 }

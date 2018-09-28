@@ -3,15 +3,22 @@ package br.senac.rn.loja.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 public class DataBase {
 
-	private static EntityManagerFactory factory;
-	private static EntityManager manager;
-	
-	public static EntityManager getEntityManager() {
-		factory = Persistence.createEntityManagerFactory("ConexaoDB");
-		manager = factory.createEntityManager();
-		return manager;
-	}	
+	private static DataBase instance = new DataBase();
+    private static EntityManager manager;
+
+    private DataBase() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("ConexaoDB");
+        manager = factory.createEntityManager();
+    }
+
+    public static DataBase getInstance() {
+        return instance;
+    }
+
+    public EntityManager getEntityManager() {
+        return manager;
+    }
+
 }

@@ -16,11 +16,11 @@ public class MarcaService {
 	private MarcaRepository repository;
 	
 	public void salvar(Marca marca) {
-		
+		repository.save(marca);
 	}
 	
 	public List<Marca> buscar() {
-		return null;
+		return repository.findAll();
 	}
 
 }
